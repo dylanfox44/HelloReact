@@ -8,8 +8,8 @@ const movie1 = {
   director: 'Frank Darabont',
   release: 'October 14, 1994',
   image: '/images/movie1.jpg',
-  height: '378',
-  width: '264'
+  height: '378px',
+  width: '264px'
 };
 
 const movie2 = {
@@ -17,8 +17,8 @@ const movie2 = {
   director: 'Christopher Nolan',
   release: 'July 13, 2010',
   image: '/images/movie2.jpg',
-  height: '378',
-  width: '264'
+  height: '378px',
+  width: '264px'
 };
 
 const movie3 = {
@@ -26,8 +26,8 @@ const movie3 = {
   director: 'Christopher Nolan',
   release: 'October 16, 2014',
   image: '/images/movie3.jpg',
-  height: '378',
-  width: '264'
+  height: '378px',
+  width: '264px'
 };
 
 function Movie() {
@@ -81,6 +81,28 @@ function Movie3() {
   );
 }
 
+const theaters = [
+  {id: 1, title: 'Studio C', location: 'Meridian Mall', isShowing: true},
+  {id: 1, title: 'NCG Cinema', location: 'Lansing', isShowing: false},
+  {id: 1, title: 'Celebration Cinema', location: 'Lansing', isShowing: true}
+];
+
+function AvailableTheaters() {
+  const listTheaters = theaters.map(theater =>
+    <li
+      key={theater.id}
+      style={{
+        color: theater.isShowing ? 'green' : 'red'
+      }}
+      >
+        {theater.title}
+      </li>
+  );
+  return (
+    <ul>{listTheaters}</ul>
+  )
+}
+
 function App() {
   
   return (
@@ -88,6 +110,7 @@ function App() {
     <Movie />
     <Movie2 />
     <Movie3 />
+    <AvailableTheaters />
     </>
   )
 }
