@@ -3,31 +3,38 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+const movie1 = {
+  title: 'The Shawshank Redemption',
+  director: 'Frank Darabont',
+  release: 'October 14, 1994',
+  image: 'https://en.wikipedia.org/wiki/File:ShawshankRedemptionMoviePoster.jpg',
+  height: '378',
+  width: '264'
+};
 
+function MovieList() {
+  return (
+    <div>
+      <h2>{movie1.title} ({movie1.release})</h2>
+      <p>{movie1.director}</p>
+      <img className="moviePoster"
+      src={movie1.image}
+      alt={movie1.title + ' poster'}
+      style={{
+        width: movie1.width,
+        height: movie1.height
+      }}
+      />
+    </div>
+  );
+}
+
+
+function App() {
+  
   return (
     <>
-      <div>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-      </div>
-      <h1>React + Vite</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          Number of Clicks: {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    <MovieList />
     </>
   )
 }
